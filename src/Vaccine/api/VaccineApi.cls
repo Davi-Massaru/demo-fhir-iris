@@ -9,20 +9,29 @@ ClassMethod Save() As %Status
     Return service.Save(vaccineDto)
 }
 
-ClassMethod OpenId(pVaccineId)
+ClassMethod OpenId(pVaccineId) As %Status
 {
     Set %response.ContentType = "application/json"
     Set service = ##class(Vaccine.service.vaccine.VaccineService).%New()
     Set vaccineDto = service.OpenId(pVaccineId)
     Do vaccineDto.WriteJson()
+    Return $$$OK
 }
 
-XData UrlMap [ XMLNamespace = "http://www.mynamespace.org" ]
+ClassMethod Ping() As %Status
+{
+    Set %response.ContentType = "application/json"
+    w "{ ""ping"": ""OK""}"
+    Return $$$OK
+}
+
+XData UrlMap
 {
 <Routes>
 
 <Route Url="/" Method="POST" Call="Save" Cors="false" />
 <Route Url="/:pVaccineId" Method="GET" Call="OpenId"  Cors="true"/>
+<Route Url="/ping/" Method="GET" Call="Ping"  Cors="true"/>
 
 </Routes>
 }

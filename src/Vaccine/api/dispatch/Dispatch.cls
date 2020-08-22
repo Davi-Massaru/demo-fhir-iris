@@ -1,10 +1,10 @@
 Class Vaccine.api.dispath.Dispatch Extends %CSP.REST
 {
 
-XData UrlMap [ XMLNamespace = "http://www.mynamespace.org" ]
+XData UrlMap
 {
 <Routes>
-<Map Prefix="/VaccineApi*" Forward="Vaccine.api.VaccineApi"/>
+<Map Prefix="/vaccine*" Forward="Vaccine.api.VaccineApi"/>
 </Routes>
 }
 

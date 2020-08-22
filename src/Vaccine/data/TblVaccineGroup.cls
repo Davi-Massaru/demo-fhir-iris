@@ -1,21 +1,23 @@
 Class Vaccine.data.TblVaccineGroup Extends %Persistent
 {
 
-Property Accines As list Of Vaccine.data.TblVaccine;
+Property Vaccines As list Of Vaccine.data.TblVaccine;
 
-Property PatientPerfilQueryStructure As list Of %Library.DynamicObject;
+Property PatientPerfilQueryStructure As %Library.DynamicObject;
 
 Storage Default
 {
+<Data name="PatientPerfilQueryStructure">
+<Attribute>PatientPerfilQueryStructure</Attribute>
+<Structure>node</Structure>
+<Subscript>"PatientPerfilQueryStructure"</Subscript>
+</Data>
 <Data name="TblVaccineGroupDefaultData">
 <Value name="1">
 <Value>%%CLASSNAME</Value>
 </Value>
 <Value name="2">
-<Value>Accines</Value>
-</Value>
-<Value name="3">
-<Value>PatientPerfilQueryStructure</Value>
+<Value>Vaccines</Value>
 </Value>
 </Data>
 <DataLocation>^Vaccine.data.TblVaccineGroupD</DataLocation>

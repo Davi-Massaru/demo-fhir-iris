@@ -3,18 +3,16 @@ Class Vaccine.data.TblVaccine Extends %Persistent
 
 Property VaccineCode As %Library.DynamicObject;
 
-Property ImmunityPeriod As %Library.DynamicObject;
+Property ImmunityPeriod As %String;
 
 Storage Default
 {
-<Data name="ImmunityPeriod">
-<Attribute>ImmunityPeriod</Attribute>
-<Structure>node</Structure>
-<Subscript>"ImmunityPeriod"</Subscript>
-</Data>
 <Data name="TblVaccineDefaultData">
 <Value name="1">
 <Value>%%CLASSNAME</Value>
+</Value>
+<Value name="2">
+<Value>ImmunityPeriod</Value>
 </Value>
 </Data>
 <Data name="VaccineCode">

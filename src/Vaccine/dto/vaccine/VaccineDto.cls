@@ -13,14 +13,4 @@ Method %OnNew() As %Status
     Return $$$OK
 }
 
-Method ConverToInsertFild() As %Library.DynamicObject
-{
-    Set VaccineCode = {}
-    Set VaccineCode.code = ..vaccineCode.coding.code
-    Set VaccineCode.system = ..vaccineCode.coding.system
-    Set VaccineCode.text = ..vaccineCode.text
-    Set VaccineCode.display = ..vaccineCode.coding.display
-    Return VaccineCode
-}
-
 }
