@@ -18,6 +18,15 @@ ClassMethod OpenId(pVaccineId) As %Status
     Return $$$OK
 }
 
+ClassMethod AllVaccines() As %Status
+{
+    Set %response.ContentType = "application/json"
+    Set service = ##class(Vaccine.service.vaccine.VaccineService).%New()
+    Set AllvaccineDto = service.All()
+    Do AllvaccineDto.WriteJson()
+    Return $$$OK
+}
+
 ClassMethod Ping() As %Status
 {
     Set %response.ContentType = "application/json"
@@ -31,6 +40,7 @@ XData UrlMap
 
 <Route Url="/" Method="POST" Call="Save" Cors="false" />
 <Route Url="/:pVaccineId" Method="GET" Call="OpenId"  Cors="true"/>
+<Route Url="/" Method="GET" Call="AllVaccines"  Cors="true"/>
 <Route Url="/ping/" Method="GET" Call="Ping"  Cors="true"/>
 
 </Routes>

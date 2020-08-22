@@ -46,3 +46,6 @@ GetJSON(GetAtJSON(GetJSON(GetJSON(ResourceString,'code'),'coding'),0),'display')
 GetProp(GetJSON(GetAtJSON(GetJSON(GetJSON(ResourceString,'code'),'coding'),0),'display'),'display') as value
 FROM HSFHIR_I0001_R.Rsrc where Key = 'Observation/16';
 
+
+
+

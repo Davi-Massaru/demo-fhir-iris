@@ -8,7 +8,6 @@ Method OpenId(pVaccineId As %String) As Vaccine.dto.vaccine.VaccineDto
 
     Set vaccineDto.ID                         = TblVaccine.%Id()
     Set vaccineDto.immunityPeriod             = TblVaccine.ImmunityPeriod
-
     Set vaccineDto.vaccineCode.text           = TblVaccine.VaccineCode.text
     Set vaccineDto.vaccineCode.coding.code    = TblVaccine.VaccineCode.coding.code
     Set vaccineDto.vaccineCode.coding.system  = TblVaccine.VaccineCode.coding.system
@@ -28,6 +27,16 @@ Method Save(pVaccineDto As Vaccine.dto.vaccine.VaccineDto) As %Status
     Set TblVaccine.ImmunityPeriod = pVaccineDto.immunityPeriod
    
     Return TblVaccine.%Save()
+}
+
+Method All() As %SQL.StatementResult
+{
+    Set sql = "SELECT ID FROM Vaccine_data.TblVaccine"
+    Set tStatement = ##class(%SQL.Statement).%New()
+    Set status = tStatement.%Prepare(sql)
+    W $System.Status.DisplayError(status) 
+    Set rset = tStatement.%Execute()
+    Return rset
 }
 
 }
