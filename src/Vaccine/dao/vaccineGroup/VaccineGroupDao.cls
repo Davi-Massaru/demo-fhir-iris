@@ -31,7 +31,7 @@ Method ConvertListOfVaccinesDtoToListOfVaccinesData(pVaccineGroupDto As Vaccine.
     Set vaccinelist = ##class(%ListOfDataTypes).%New()
     Set amountVaccine = pVaccineGroupDto.CountVaccines()
     For i=1:1:amountVaccine{
-        Set TblVaccine = ##class(Vaccine.data.TblVaccine).%OpenId(pVaccineGroupDto.GetVaccineFromIndex(i))
+        Set TblVaccine = ##class(Vaccine.data.TblVaccine).%OpenId(pVaccineGroupDto.GetVaccineFromIndex(i).ID)
         Do vaccinelist.Insert(TblVaccine)
     }
 

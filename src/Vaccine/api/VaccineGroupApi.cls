@@ -4,9 +4,9 @@ Class Vaccine.api.VaccineGroupApi Extends %CSP.REST
 ClassMethod Save() As %Status
 {
     Set %response.ContentType = "application/json"
-    #Dim vaccineGroupDto AS Vaccine.dto.vaccineGroup.VaccineGroupDto = ##class(%DynamicAbstractObject).%FromJSON(%request.Content.Read())
+    #Dim vaccineDto AS Vaccine.dto.vaccine.VaccineDto = ##class(%DynamicAbstractObject).%FromJSON(%request.Content.Read())
     Set service = ##class(Vaccine.service.vaccineGroup.VaccineGroupService).%New()
-    Return service.Save(vaccineGroupDto)
+    Return service.Save(vaccineDto)
 }
 
 ClassMethod OpenId(pVaccineId) As %Status
@@ -15,6 +15,15 @@ ClassMethod OpenId(pVaccineId) As %Status
     Set service = ##class(Vaccine.service.vaccineGroup.VaccineGroupService).%New()
     Set vaccineDto = service.OpenId(pVaccineId)
     Do vaccineDto.WriteJson()
+    Return $$$OK
+}
+
+ClassMethod AllVaccines() As %Status
+{
+    Set %response.ContentType = "application/json"
+    Set service = ##class(Vaccine.service.vaccineGroup.VaccineGroupService).%New()
+    Set AllvaccineDto = service.All()
+    Do AllvaccineDto.WriteJson()
     Return $$$OK
 }
 
@@ -31,6 +40,7 @@ XData UrlMap
 
 <Route Url="/" Method="POST" Call="Save" Cors="false" />
 <Route Url="/:pVaccineId" Method="GET" Call="OpenId"  Cors="true"/>
+<Route Url="/" Method="GET" Call="AllVaccines"  Cors="true"/>
 <Route Url="/ping/" Method="GET" Call="Ping"  Cors="true"/>
 
 </Routes>
