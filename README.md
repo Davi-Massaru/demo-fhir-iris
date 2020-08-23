@@ -1,7 +1,8 @@
 # iris-fhirserver-template
-This is the base template for using InterSystems IRIS for Health Community Edition as a FHIR Server
 
-It setups a FHIR SERVER, imports the test data, demoes REST API usage with a simple web page.
+In this application, you find a simple REST API for vaccine control.
+You can customize the application for execute other routes, inside the FHIR data scheme.
+You also find a simple ANGULAR application, which can be useful for you to learn how to access this END POINT
 
 ## Prerequisites
 Make sure you have [git](https://git-scm.com/book/en/v2/Getting-Started-Installing-Git) and [Docker desktop](https://www.docker.com/products/docker-desktop) installed.
@@ -11,7 +12,7 @@ Make sure you have [git](https://git-scm.com/book/en/v2/Getting-Started-Installi
 Clone/git pull the repo into any local directory
 
 ```
-$ git clone https://github.com/intersystems-community/iris-fhir-template.git
+$ git clone https://github.com/Davi-Massaru/demo-fhir-iris
 ```
 
 Open the terminal in this directory and run:
