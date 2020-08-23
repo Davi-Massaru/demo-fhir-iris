@@ -61,15 +61,22 @@ http://localhost:32783/fhir/r4/Patient/1
 <img width="884" alt="Screenshot 2020-08-07 at 17 42 26" src="https://user-images.githubusercontent.com/2781759/89657252-71606d80-d8d5-11ea-957f-041dbceffdc8.png">
 
 
-## Testing FHIR API calls in simple frontend APP
 
-the very basic frontend app with search and get calls to Patient and Observation FHIR resources could be found here:
-http://localhost:32783/csp/user/fhirUI/FHIRAppDemo.html
-or from VSCode ObjectScript menu:
-<img width="616" alt="Screenshot 2020-08-07 at 17 34 49" src="https://user-images.githubusercontent.com/2781759/89657546-ea5fc500-d8d5-11ea-97ed-6fbbf84da655.png">
+## The file structure
+In \demo-fhir-iris\src\Vaccine you have the vaccine example structure of the API.
+In \demo-fhir-iris\fhirUI\Vaccines You have an example of ANGULAR application for consumption, to test make sure you have npm installed and run the commands:
 
-While open the page you will see search result for female anemic patients and graphs a selected patient's hemoglobin values:
-<img width="484" alt="Screenshot 2020-08-06 at 18 51 22" src="https://user-images.githubusercontent.com/2781759/89657718-2b57d980-d8d6-11ea-800f-d09dfb48f8bc.png">
+```
+npm install
+```
+
+
+```
+ng serve --open
+```
+
+
+
 
 
 ## Development Resources
