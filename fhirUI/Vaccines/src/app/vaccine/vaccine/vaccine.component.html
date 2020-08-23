@@ -1,0 +1,37 @@
+
+<div class="d-md-flex col-8 align-items-center align-content-center">
+
+<div class="col-md-5">
+    <div class="list-group" id="list-tab" role="tablist">
+      <button  *ngFor="let vaccineIndList of this.vaccineList.ListVaccineDto"  class="list-group-item list-group-item-action" id="list-home-list" data-toggle="list" (click)="buildModel(vaccineIndList)"  aria-controls="home">
+        {{vaccineIndList.vaccineCode.coding.display}} | {{vaccineIndList.vaccineCode.coding.code}} | {{vaccineIndList.vaccineCode.coding.system}}
+      </button>
+    </div>
+</div>
+
+<div class="col-md-7">
+  <form>
+        <div class="form-group ">
+
+          <label for="formGroupExampleInput2">ID</label>
+          <input type="text" class="form-control" [(ngModel)] = vaccine.ID >
+
+          <label for="formGroupExampleInput">Text</label>
+          <input type="text" class="form-control" id="formGroupExampleInput" placeholder="input">
+
+          <label for="formGroupExampleInput2">Display</label>
+          <input type="text" class="form-control" id="formGroupExampleInput2" placeholder="input">
+
+          <label for="formGroupExampleInput2">System</label>
+          <input type="text" class="form-control" id="formGroupExampleInput2" placeholder="input">
+
+          <label for="formGroupExampleInput2">ImmunityPeriod</label>
+          <input type="text" class="form-control" id="formGroupExampleInput2" placeholder="input">
+
+        </div>
+    </form>
+
+</div>
+
+
+</div>

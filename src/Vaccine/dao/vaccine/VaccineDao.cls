@@ -34,7 +34,6 @@ Method All() As %SQL.StatementResult
     Set sql = "SELECT ID FROM Vaccine_data.TblVaccine"
     Set tStatement = ##class(%SQL.Statement).%New()
     Set status = tStatement.%Prepare(sql)
-    W $System.Status.DisplayError(status) 
     Set rset = tStatement.%Execute()
     Return rset
 }

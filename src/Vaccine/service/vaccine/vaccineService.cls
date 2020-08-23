@@ -13,8 +13,8 @@ Method All() As Vaccine.dto.vaccine.ListVaccineDto
 {
     Set result = ..VaccineDao.All()
     Set ListVaccineDto = ##class(Vaccine.dto.vaccine.ListVaccineDto).%New()
+	
 	While result.%Next(){
-		w result.ID
 		Set vaccineDto = ..OpenId(result.ID)
 		Do ListVaccineDto.InsertListVaccineDto(vaccineDto)
 	}
