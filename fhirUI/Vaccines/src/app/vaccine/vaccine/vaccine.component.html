@@ -1,37 +1,64 @@
 
-<div class="d-md-flex col-8 align-items-center align-content-center">
+<div class="d-md-flex col-8 align-items-center align-content-center" style="margin-bottom: 20px;margin-top: 20px;">
 
-<div class="col-md-5">
-    <div class="list-group" id="list-tab" role="tablist">
-      <button  *ngFor="let vaccineIndList of this.vaccineList.ListVaccineDto"  class="list-group-item list-group-item-action" id="list-home-list" data-toggle="list" (click)="buildModel(vaccineIndList)"  aria-controls="home">
+  <div class="col-md-5">
+    <div class="list-group">
+      <button  *ngFor="let vaccineIndList of vaccineList.ListVaccineDto"  class="list-group-item list-group-item-action" id="list-home-list" data-toggle="list" (click)="buildModel(vaccineIndList)"  aria-controls="home">
         {{vaccineIndList.vaccineCode.coding.display}} | {{vaccineIndList.vaccineCode.coding.code}} | {{vaccineIndList.vaccineCode.coding.system}}
       </button>
     </div>
-</div>
+  </div>
 
-<div class="col-md-7">
-  <form>
-        <div class="form-group ">
+  <div class="col-md-7" style="background-color: antiquewhite;" >
 
+        <div class="form-group">
           <label for="formGroupExampleInput2">ID</label>
-          <input type="text" class="form-control" [(ngModel)] = vaccine.ID >
+          <input type="text" class="form-control" [(ngModel)] = "vaccine.ID" enable = "false" readonly/>
+
+          <label for="formGroupExampleInput2">FHIR CODE SYSTEM</label>
+          <input type="text" class="form-control" [(ngModel)] = "vaccine.vaccineCode.coding.code" />
 
           <label for="formGroupExampleInput">Text</label>
-          <input type="text" class="form-control" id="formGroupExampleInput" placeholder="input">
+          <input type="text" class="form-control" [(ngModel)] = "vaccine.vaccineCode.text" >
 
           <label for="formGroupExampleInput2">Display</label>
-          <input type="text" class="form-control" id="formGroupExampleInput2" placeholder="input">
+          <input type="text" class="form-control" [(ngModel)] = "vaccine.vaccineCode.coding.display">
 
           <label for="formGroupExampleInput2">System</label>
-          <input type="text" class="form-control" id="formGroupExampleInput2" placeholder="input">
+          <input type="text" class="form-control" [(ngModel)] = "vaccine.vaccineCode.coding.system" >
 
           <label for="formGroupExampleInput2">ImmunityPeriod</label>
-          <input type="text" class="form-control" id="formGroupExampleInput2" placeholder="input">
+          <input type="text" class="form-control"  [(ngModel)] = "vaccine.immunityPeriod">
 
+         
         </div>
-    </form>
+        <div style="margin-bottom: 10px;">
+        <button type="button" class="btn btn-primary btn-lg active" (click)="postVaccine()"    style="margin-left: 5px;" > Save </button>
+        <button type="button" class="btn btn-primary btn-lg active" (click)="resetVaccine()"   style="margin-left: 5px;"  > Clear </button>
+        <button type="button" class="btn btn-primary btn-lg active" (click)="postNewVaccine()" style="margin-left: 5px;" > New </button>
+        <button type="button" class="btn btn-success btn-lg active" (click)="resetVaccine()" style="margin-left: 5px; width: 250px;" > check patients </button>
+      </div>
+    </div>
 
 </div>
 
+<div class="card col-10 align-content-center flex-column" >
+<ul class="nav nav-tabs" id="myTab" role="tablist">
+
+  <li class="nav-item">
+    <a class="nav-link active" id="home-tab" data-toggle="tab" href="#home" role="tab" aria-controls="home" aria-selected="true">Home</a>
+  </li>
+
+  <li class="nav-item">
+    <a class="nav-link" id="profile-tab" data-toggle="tab" href="#profile" role="tab" aria-controls="profile" aria-selected="false">Profile</a>
+  </li>
+
+</ul>
+
+<div class="tab-content" id="myTabContent">
+  <div class="tab-pane fade show active" id="home" role="tabpanel" aria-labelledby="home-tab">1</div>
+  <div class="tab-pane fade" id="profile" role="tabpanel" aria-labelledby="profile-tab">2</div>
+  <div class="tab-pane fade" id="contact" role="tabpanel" aria-labelledby="contact-tab">3</div>
+</div>
 
 </div>

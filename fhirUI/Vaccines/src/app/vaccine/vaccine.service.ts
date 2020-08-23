@@ -18,8 +18,8 @@ export class VaccineService {
     return this.http.get<VaccineList>(API + 'customrestapi/vaccine/');  
   }
 
-  postVaccines(pVaccine:Vaccine){
-    return this.http.post<Vaccine>(API + 'customrestapi/vaccine/', pVaccine)
+  postVaccines(pVaccine){
+    return this.http.post(API + 'customrestapi/vaccine/', pVaccine).subscribe(r => console.log(r));
   }
 
 }

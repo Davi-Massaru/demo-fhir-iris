@@ -38,4 +38,13 @@ Method All() As %SQL.StatementResult
     Return rset
 }
 
+Method patientsWhoGotTheVaccine(pVaccineCode) As %SQL.StatementResult
+{
+    Set sql = "SELECT patient,vaccineCode FROM HSFHIR_I0001_S.Immunization WHERE vaccineCode LIKE '%"_pVaccineCode_"%' GROUP BY patient"
+    Set tStatement = ##class(%SQL.Statement).%New()
+    Set status = tStatement.%Prepare(sql)
+    Set rset = tStatement.%Execute()
+    Return rset
+}
+
 }

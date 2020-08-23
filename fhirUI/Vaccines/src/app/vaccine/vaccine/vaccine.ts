@@ -1,11 +1,11 @@
 export interface Vaccine {
-    ID:number,
+    ID:string,
     immunityPeriod:string,
     vaccineCode:{
         text:string,
         coding:{
                 system:string,
-                code:number,
+                code:string,
                 display:string
         }
     }
