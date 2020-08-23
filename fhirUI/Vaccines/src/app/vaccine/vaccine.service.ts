@@ -1,7 +1,10 @@
-import { VaccineList } from './vaccine/vaccineList';
+
 import { HttpClient, HttpParams } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Vaccine } from "./vaccine/vaccine";
+import { Patient } from '../patient/patient';
+import { patientList } from '../patient/patientList';
+import { VaccineList } from './vaccine/vaccineList';
 
 const API = 'http://localhost:32783/fhir/r4/';
 
@@ -22,4 +25,7 @@ export class VaccineService {
     return this.http.post(API + 'customrestapi/vaccine/', pVaccine).subscribe(r => console.log(r));
   }
 
+  checkPatients(pVaccineCode){
+    return this.http.get<patientList>(API + 'customrestapi/vaccine/immunitypatients/'+ pVaccineCode);
+  }
 }

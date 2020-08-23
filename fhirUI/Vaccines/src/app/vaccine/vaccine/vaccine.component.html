@@ -3,7 +3,7 @@
 
   <div class="col-md-5">
     <div class="list-group">
-      <button  *ngFor="let vaccineIndList of vaccineList.ListVaccineDto"  class="list-group-item list-group-item-action" id="list-home-list" data-toggle="list" (click)="buildModel(vaccineIndList)"  aria-controls="home">
+      <button  *ngFor="let vaccineIndList of vaccineList.ListVaccineDto"  class="list-group-item list-group-item-action" (click)="buildModel(vaccineIndList)"  >
         {{vaccineIndList.vaccineCode.coding.display}} | {{vaccineIndList.vaccineCode.coding.code}} | {{vaccineIndList.vaccineCode.coding.system}}
       </button>
     </div>
@@ -36,7 +36,7 @@
         <button type="button" class="btn btn-primary btn-lg active" (click)="postVaccine()"    style="margin-left: 5px;" > Save </button>
         <button type="button" class="btn btn-primary btn-lg active" (click)="resetVaccine()"   style="margin-left: 5px;"  > Clear </button>
         <button type="button" class="btn btn-primary btn-lg active" (click)="postNewVaccine()" style="margin-left: 5px;" > New </button>
-        <button type="button" class="btn btn-success btn-lg active" (click)="resetVaccine()" style="margin-left: 5px; width: 250px;" > check patients </button>
+        <button type="button" class="btn btn-success btn-lg active" (click)="checkPatients()" style="margin-left: 5px; width: 250px;" > check patients </button>
       </div>
     </div>
 
@@ -46,19 +46,35 @@
 <ul class="nav nav-tabs" id="myTab" role="tablist">
 
   <li class="nav-item">
-    <a class="nav-link active" id="home-tab" data-toggle="tab" href="#home" role="tab" aria-controls="home" aria-selected="true">Home</a>
-  </li>
-
-  <li class="nav-item">
-    <a class="nav-link" id="profile-tab" data-toggle="tab" href="#profile" role="tab" aria-controls="profile" aria-selected="false">Profile</a>
+    <a class="nav-link active" id="home-tab" data-toggle="tab" href="#take" role="tab" aria-controls="home" aria-selected="true">Take</a>
   </li>
 
 </ul>
 
 <div class="tab-content" id="myTabContent">
-  <div class="tab-pane fade show active" id="home" role="tabpanel" aria-labelledby="home-tab">1</div>
-  <div class="tab-pane fade" id="profile" role="tabpanel" aria-labelledby="profile-tab">2</div>
-  <div class="tab-pane fade" id="contact" role="tabpanel" aria-labelledby="contact-tab">3</div>
+  <div class="tab-pane fade show active" id="take" role="tabpanel" aria-labelledby="home-tab">
+
+<table class="table">
+  <thead>
+    <tr>
+      <th scope="col">Name</th>
+      <th scope="col">Gender</th>
+      <th scope="col">Country</th>
+    </tr>
+  </thead>
+
+  <tbody>
+
+    <tr *ngFor="let resultPatient of  " >
+      <th > {{ resultPatient.name[0].given[0] }}| {{ resultPatient.name[0].family }}</th>
+      <th > {{ resultPatient.gender }}</th>
+      <th > {{ resultPatient.address[0].state}}</th>
+    </tr>
+
+  </tbody>
+</table>
+
+  </div>
 </div>
 
 </div>

@@ -1,3 +1,4 @@
+import { patientFHIRService } from './patient/patientFHIR.service';
 import { HttpClientModule } from '@angular/common/http';
 
 import { BrowserModule } from '@angular/platform-browser';
@@ -19,7 +20,7 @@ import { VaccineComponent } from './vaccine/vaccine/vaccine.component';
     FormsModule,
     HttpClientModule
   ],
-  providers: [VaccineService],
+  providers: [VaccineService,patientFHIRService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
