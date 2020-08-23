@@ -12,6 +12,7 @@ Method OpenId(pVaccineId As %String) As Vaccine.dto.vaccine.VaccineDto
     Set vaccineDto.vaccineCode.coding.code    = TblVaccine.VaccineCode.coding.code
     Set vaccineDto.vaccineCode.coding.system  = TblVaccine.VaccineCode.coding.system
     Set vaccineDto.vaccineCode.coding.display = TblVaccine.VaccineCode.coding.display
+    
     Return vaccineDto
 }
 
