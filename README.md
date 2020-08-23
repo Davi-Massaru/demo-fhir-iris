@@ -21,13 +21,19 @@ Open the terminal in this directory and run:
 $ docker-compose up -d
 ```
 
+Compile the RestHandler.cls in the path "demo-fhir-iris\src\HS\FHIRServer"
+
+
+
 ## Patient data
-The template goes with 5 preloaded patents in [/data/fhir](https://github.com/intersystems-community/iris-fhir-server-template/tree/master/data/fhir) folder which are being loaded during [docker build](https://github.com/intersystems-community/iris-fhir-server-template/blob/8bd2932b34468f14530a53d3ab5125f9077696bb/iris.script#L26)
+The template goes with  preloaded patents in [/data/fhir](https://github.com/intersystems-community/iris-fhir-server-template/tree/master/data/fhir) folder which are being loaded during [docker build](https://github.com/intersystems-community/iris-fhir-server-template/blob/8bd2932b34468f14530a53d3ab5125f9077696bb/iris.script#L26)
 You can generate more patients doing the following. Open shel terminal in repository folder and call:
+
 ```
 #./synthea-loader.sh 10
 ```
-this will create 10 more patients in data/fhir folder.
+
+this will create 18 more patients in data/fhir folder.
 Then open IRIS terminal in FHIRSERVER namespace with the following command:
 ```
 docker-compose exec iris iris session iris -U FHIRServer
