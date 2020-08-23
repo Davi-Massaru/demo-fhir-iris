@@ -1,7 +1,9 @@
 # iris-fhirserver-template
 
 In this application, you find a simple REST API for vaccine control.
+
 You can customize the application for execute other routes, inside the FHIR data scheme.
+
 You also find a simple ANGULAR application, which can be useful for you to learn how to access this END POINT
 
 ## Prerequisites
@@ -63,20 +65,19 @@ http://localhost:32783/fhir/r4/Patient/1
 
 
 ## The file structure
+
 In \demo-fhir-iris\src\Vaccine you have the vaccine example structure of the API.
+
 In \demo-fhir-iris\fhirUI\Vaccines You have an example of ANGULAR application for consumption, to test make sure you have npm installed and run the commands:
+
 
 ```
 npm install
 ```
 
-
 ```
 ng serve --open
 ```
-
-
-
 
 
 ## Development Resources
